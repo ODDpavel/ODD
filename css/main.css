@@ -8,3 +8,12 @@ h1 {
 h2 {
     color: lightgreen;
 }
+
+.log {
+    color: cornsilk ;
+    border: 1px solid #DDD;
+    padding: 40px 0px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
