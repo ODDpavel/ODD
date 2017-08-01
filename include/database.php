@@ -19,17 +19,24 @@
         mysqli_connect("localhost", "root", "", 'MyBase');
 
 
-        $postLog = $_POST['Login'];
+
 
         if (isset($_POST ["LogButton"])) {
-            $strSQL = "SELECT * FROM users where login ="."$postLog"; // формируем запрос
+            $postLog = $_POST['Login'];
+            $strSQL = "SELECT * FROM users where login = '"."$postLog"."' ";// формируем запрос
+            
             $rs = mysqli_query($link, $strSQL); // производим запрос в бд
-            $row = mysqli_fetch_array($rs, 1); // результат записываем в массив
+
+            $row = mysqli_fetch_array($rs, MYSQLI_ASSOC); // результат записываем в массив
+
                 $strLogin = $row['login'];
                 $strPassword = $row['password'];
-                if ($strLogin == $_POST['Login'] && $strPassword == $_POST['Password'] ) {
+
+                if ($strLogin == $_POST['Login'] /*&& $strPassword == $_POST['Password']*/ ) {
 
                     echo '<div class="log">'. $strLogin . " Добро пожаловать!".'</div>'.'<br />';
+                } else {
+                    echo '<div class="err">' . "Неверный логин или пароль!" . '</div>'.'<br />';
                 }
 
         };
