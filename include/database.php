@@ -16,40 +16,27 @@
 ?>
 
 <?php
-        $login = 'Неизвестен';
-        $password = 'Неизвестен';
-        if(isset($_POST['Login'])) $login = $_POST['login'];
-        if (isset($_POST['Password'])) $password = $_POST['password'];
-
-
-        $qr = $_POST ['Login'];
         mysqli_connect("localhost", "root", "", 'MyBase');
-        $strSQL = "SELECT * FROM users "; // формируем запрос
-        $rs = mysqli_query($link, $strSQL); // производим запрос в бд
-        $row = mysqli_fetch_array($rs); // результат записываем в массив
+
+
+        $postLog = $_POST['Login'];
+
         if (isset($_POST ["LogButton"])) {
-            while ($row = mysqli_fetch_array($rs)) {
+            $strSQL = "SELECT * FROM users where login ="."$postLog"; // формируем запрос
+            $rs = mysqli_query($link, $strSQL); // производим запрос в бд
+            $row = mysqli_fetch_array($rs, 1); // результат записываем в массив
                 $strLogin = $row['login'];
                 $strPassword = $row['password'];
                 if ($strLogin == $_POST['Login'] && $strPassword == $_POST['Password'] ) {
 
                     echo '<div class="log">'. $strLogin . " Добро пожаловать!".'</div>'.'<br />';
                 }
-            }
-        };
 
+        };
 
 
 ?>
 
-<?php
-   /* if ($_GET ['Login'] == $row['login'] ) {
-        echo 'Вход произведён успешно';
-    } else {
-        echo 'неверный пользователь или пароль';
-    }
-*/
-    ?>
 
 </body>
 </html>
