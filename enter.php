@@ -1,12 +1,7 @@
-<!DOCTYPE HTML>
-
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <title> MyDev </title>
-</head>
-<body>
+<?php
+require_once 'app/header.php';
+require_once 'app/footer.php';
+?>
 <?php
     $link = mysqli_connect('localhost', 'root', '', 'MyBase');
     if (mysqli_connect_errno()) {
@@ -34,9 +29,9 @@
 
                 if ($strLogin == $_POST['Login'] && $strPassword == $_POST['Password'] )  {
 
-                    echo '<div class="log">'. $strLogin . " Добро пожаловать!".'</div>'.'<br />';
+                    echo '<p class="alert alert-info" role="alert">'. $strLogin . " Добро пожаловать!".'</p>'.'<br />';
                 } else {
-                    echo '<div class="err">' . "Неверный логин или пароль!" . '</div>'.'<br />';
+                    echo '<p class="alert alert-danger" role="alert">' . "Неверный логин или пароль!" . '</p>'.'<br />';
                 }
 
         };
@@ -44,6 +39,3 @@
 
 ?>
 
-
-</body>
-</html>

@@ -1,28 +1,29 @@
 <?php
-    require_once 'include/database.php'
+    require_once 'enter.php';
+    require_once 'app/header.php';
+    require_once 'app/footer.php';
 ?>
-<!DOCTYPE HTML>
-
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <title> MyDev </title>
-</head>
-<body>
-    <form name="test" action="include/database.php" method="post">
-        <p style="color: cornsilk"><label> Login :</label> </br>
-        <input type="text" name="Login" placeholder="логин"> </br>
+    <div class="container">
+    <form name="test" action="enter.php" method="post">
+        <p style="color: #666"><label> Login :</label> </br>
+        <input type="text" class="form-control-static" name="Login" placeholder="login"> </br>
         </p>
-        <p style="color: cornsilk">
+        <p style="color: #666">
             <label> Password :</label> </br>
-        <input type="text" name="Password" placeholder="пароль"> </br>
+        <input type="text" class="form-control-static" name="Password" placeholder="password"> </br>
         </p>
-        <input type="submit" name="LogButton" value="Готово">
+        <input type="submit" class="btn btn-primary" name="LogButton" value="Submit">
+    </form>
+    <br>
+    <form action="regpage.php">
+    <button class="btn btn-primary">Registration</button>
     </form>
 
-    <h1> MyFirstDev</h1>
-    <h2> Hello User</h2>
 
-</body>
-</html>
+    </div>
+    <div class="container">
+        <br>
+<form action="admin.php">
+    <button class="btn btn-warning">Administration</button>
+</form>
+    </div>
