@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ODD
- * Date: 17.08.2017
- * Time: 13:17
- */
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +9,7 @@
     <title> ODD & Co</title>
     <!-- Bootstrap -->
     <!--<link rel="stylesheet" type="text/css" href="../css/main.css"> -->
-    <link href="public/css/bootstrap.css" rel="stylesheet">
+    <link href="/public/css/bootstrap.css" rel="stylesheet">
 
 </head>
 <body>
@@ -27,7 +23,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/index.php"> ODD </a>
+                    <a class="navbar-brand" href="/index.php"> ODD & Co </a>
                 </div>
                 <div class="collapse navbar-collapse" id="responsive-menu">
                     <ul class="nav navbar-nav">
@@ -36,7 +32,11 @@
                         <li><a href="#">Page 3</a></li>
                         <li><a href="#">Page 4</a></li>
                     </ul>
+                    <p class="navbar-brand" > <?php echo 'Welcome , ' . $_SESSION['login'] = 'Guest' ?> </p>
                 </div>
+
+
+
             </div>
 
         </div>

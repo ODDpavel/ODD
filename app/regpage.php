@@ -1,14 +1,22 @@
 <?php
-    require_once 'registered.php';
+require_once 'header.php';
+require_once 'footer.php';
+require_once 'reg_class.php';
 ?>
+<?php
+app\linkSql::linked();
+app\reg_class::registered();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css">
 
     <!-- Website CSS style -->
-    <link rel="stylesheet" type="text/css" href="css/regpage.css">
+    <link rel="stylesheet" type="text/css" href="../css/regpage.css">
 
     <!-- Website Font style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -77,13 +85,13 @@
                     <input type="submit" class="btn btn-primary" name="Reg" value="Registration">
                 </div>
                 <div class="login-register">
-                    <a href="index.php">Login</a>
+                    <a href="../index.php">Login</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="public/js/bootstrap.js"></script>
+<script type="text/javascript" src="../public/js/bootstrap.js"></script>
 </body>
 </html>

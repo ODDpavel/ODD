@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 31 2017 г., 17:17
+-- Время создания: Сен 02 2017 г., 16:54
 -- Версия сервера: 5.5.53
 -- Версия PHP: 5.5.38
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `MyBase`
 --
-CREATE DATABASE IF NOT EXISTS `MyBase` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `MyBase`;
 
 -- --------------------------------------------------------
 
@@ -29,23 +27,24 @@ USE `MyBase`;
 --
 
 CREATE TABLE `users` (
-  `id_user` int(11) NOT NULL,
-  `login` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(12) COLLATE utf8_unicode_ci NOT NULL
+  `id_user` int(10) NOT NULL,
+  `login` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(25) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id_user`, `login`, `password`) VALUES
-(1, 'wizard', 'qwe123'),
-(2, 'neo', 'asd345'),
-(3, 'spiderman', 'fgh567'),
-(4, 'lordofice', 'zxc789'),
-(5, 'rabbit', 'jkl365'),
-(6, 'goodgame', 'dfg345fgh'),
-(7, 'admin', 'admin');
+INSERT INTO `users` (`id_user`, `login`, `password`, `email`) VALUES
+(1, 'admin', 'admin', 'admin@mail.com'),
+(2, 'freeman', 'freeman', 'freeman@mail.com'),
+(3, 'robson', 'robson', 'robson@mail.com'),
+(4, 'sierra', 'sierra', 'sierra@mail.com'),
+(5, 'maclaflin', 'maclaflin', 'maclaflin@mail.com'),
+(6, 'McGreat', 'McGreat', 'McGreat@mail.com'),
+(9, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'user@mail.com');
 
 --
 -- Индексы сохранённых таблиц
@@ -65,7 +64,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

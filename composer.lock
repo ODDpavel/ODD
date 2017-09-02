@@ -1,0 +1,57 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "0d2c2bf6f06b53ef80f6b41f7d97f24b",
+    "packages": [
+        {
+            "name": "00f100/phpdbug",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/00F100/phpdbug.git",
+                "reference": "ffe174fb589e1d7d7f7043d6150b4759adce2b6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/00F100/phpdbug/zipball/ffe174fb589e1d7d7f7043d6150b4759adce2b6d",
+                "reference": "ffe174fb589e1d7d7f7043d6150b4759adce2b6d",
+                "shasum": ""
+            },
+            "type": "package",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "PHPdbug\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "João Moraes",
+                    "email": "joaomoraesbr@gmail.com",
+                    "homepage": "https://github.com/00f100"
+                }
+            ],
+            "description": "Package to debug everything in PHP",
+            "homepage": "https://github.com/00f100/phpdbug",
+            "keywords": [
+                "denbug",
+                "php"
+            ],
+            "time": "2017-07-27T14:09:24+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
