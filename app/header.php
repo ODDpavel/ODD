@@ -1,5 +1,5 @@
 <?php
-
+require_once "reg_class.php";
 
 ?>
 <!DOCTYPE html>
@@ -8,7 +8,6 @@
     <meta charset="utf-8">
     <title> ODD & Co</title>
     <!-- Bootstrap -->
-    <!--<link rel="stylesheet" type="text/css" href="../css/main.css"> -->
     <link href="/public/css/bootstrap.css" rel="stylesheet">
 
 </head>
@@ -32,7 +31,10 @@
                         <li><a href="#">Page 3</a></li>
                         <li><a href="#">Page 4</a></li>
                     </ul>
-                    <p class="navbar-brand" > <?php echo 'Welcome , ' . $_SESSION['login'] = 'Guest' ?> </p>
+                    <a class="navbar-brand" <?php if ( $_SESSION["login"] !== "Guest"){ ?> href='../app/edit.php' <?php }?> >
+                        <?php echo 'Welcome ' . app\enter::session()  ?> </a>
+
+                    <a class="navbar-brand" href='../app/logout.php'>Click here to log out</a>
                 </div>
 
 

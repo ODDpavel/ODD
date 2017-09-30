@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../app/header.php';
 require_once '../app/footer.php';
 require_once  '../app/reg_class.php';

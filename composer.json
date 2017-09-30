@@ -10,6 +10,7 @@
     }
   ],
   "require": {
-    "00f100/phpdbug": "0.3.0"
+    "00f100/phpdbug": "0.3.0",
+    "robmorgan/phinx": "^0.9.1"
   }
 }
