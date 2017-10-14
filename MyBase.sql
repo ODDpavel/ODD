@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 30 2017 г., 16:27
+-- Время создания: Окт 14 2017 г., 14:35
 -- Версия сервера: 5.5.53
 -- Версия PHP: 7.0.14
 
@@ -45,6 +45,30 @@ INSERT INTO `BoardGames` (`games_id`, `titleGame`, `description`, `price_$`) VAL
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `time_comment` datetime NOT NULL,
+  `text_comment` text COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `page` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `time_comment`, `text_comment`, `name`, `page`) VALUES
+(154, '2017-10-12 16:38:31', 'asdfg', 'odd', 'monopoly'),
+(155, '2017-10-12 16:39:40', 'hello', 'odd', 'monopoly'),
+(156, '2017-10-12 16:52:13', 'nice game', 'user', 'monopoly'),
+(157, '2017-10-12 18:21:35', 'have fun:)', 'user', 'monopoly');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `phinxlog`
 --
 
@@ -75,17 +99,19 @@ CREATE TABLE `users` (
   `password` varchar(255) CHARACTER SET utf8 NOT NULL,
   `email` varchar(25) CHARACTER SET utf8 NOT NULL,
   `activation` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` int(10) NOT NULL DEFAULT '0'
+  `status` int(10) NOT NULL DEFAULT '0',
+  `role` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id_user`, `login`, `password`, `email`, `activation`, `status`) VALUES
-(6, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'user@mail.com', '1c910a0824942ef9696d21451b0a7dc0', 1),
-(7, 'freeman', '6636e1322531bd6a9bf66f3c3aabd8d6', 'freeman@mail.com', '8c4bd61d0b63e7245e02c0ac40d29958', 1),
-(8, 'odd', 'a2b6f2a6066ed8700d83335fc50a2b8e', 'odd@mail.com', '9458d02b5737b65c5ab06f46c25dd133', 1);
+INSERT INTO `users` (`id_user`, `login`, `password`, `email`, `activation`, `status`, `role`) VALUES
+(6, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'user@mail.com', '1c910a0824942ef9696d21451b0a7dc0', 1, 'user'),
+(7, 'freeman', '6636e1322531bd6a9bf66f3c3aabd8d6', 'freeman@mail.com', '8c4bd61d0b63e7245e02c0ac40d29958', 1, 'user'),
+(8, 'odd', 'a2b6f2a6066ed8700d83335fc50a2b8e', 'odd@mail.com', '9458d02b5737b65c5ab06f46c25dd133', 1, 'user'),
+(9, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@mail.com', '883c28fda533005665f16f3a51722035', 1, 'admin');
 
 --
 -- Индексы сохранённых таблиц
@@ -96,6 +122,12 @@ INSERT INTO `users` (`id_user`, `login`, `password`, `email`, `activation`, `sta
 --
 ALTER TABLE `BoardGames`
   ADD PRIMARY KEY (`games_id`);
+
+--
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `phinxlog`
@@ -114,10 +146,15 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+--
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

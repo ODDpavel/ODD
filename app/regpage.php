@@ -5,7 +5,7 @@ require_once 'footer.php';
 require_once 'reg_class.php';
 ?>
 <?php
-app\linkSql::linked();
+app\linkSql::link();
 app\reg_class::registered();
 
 ?>
@@ -29,12 +29,12 @@ app\reg_class::registered();
     <title>Admin</title>
 </head>
 <body>
-<div class="container">
+<div class="container container-top">
     <div class="row main">
         <div class="panel-heading">
             <div class="panel-title text-center">
                 <h1 class="title">ODD company</h1>
-                <hr />
+                <hr/>
             </div>
         </div>
         <div class="main-login main-center">
@@ -45,7 +45,8 @@ app\reg_class::registered();
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username" maxlength="15" required/>
+                            <input type="text" class="form-control" name="username" id="username"
+                                   placeholder="Enter your Username" maxlength="15" required/>
                         </div>
                     </div>
                 </div>
@@ -55,11 +56,11 @@ app\reg_class::registered();
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                            <input type="email" class="form-control" name="email" id="email"  placeholder="Enter your Email" maxlength="30" required/>
+                            <input type="email" class="form-control" name="email" id="email"
+                                   placeholder="Enter your Email" maxlength="30" required/>
                         </div>
                     </div>
                 </div>
-
 
 
                 <div class="form-group">
@@ -67,7 +68,8 @@ app\reg_class::registered();
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password" maxlength="20" required/>
+                            <input type="password" class="form-control" name="password" id="password"
+                                   placeholder="Enter your Password" maxlength="20" required/>
                         </div>
                     </div>
                 </div>
@@ -77,7 +79,8 @@ app\reg_class::registered();
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password" maxlength="20" required/>
+                            <input type="password" class="form-control" name="confirm" id="confirm"
+                                   placeholder="Confirm your Password" maxlength="20" required/>
                         </div>
                     </div>
                 </div>
