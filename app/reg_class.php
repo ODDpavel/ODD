@@ -52,8 +52,14 @@ class reg_class
                         $to = "Romanoff78@yandex.ru";
                         $subject = "Проверка Email-а";
                         $body = 'Hi, ' . $username . '.  Активация! Пожалуйста перейдите по ссылки для активации вашего аккаунта' . '<a href="http://myfirstdev/app/activation.php">' . $base_url . 'activation.php/?code=' . $activation . '</a>';
-
-                        mail($to, $subject, $body);
+                        try {
+                            mail($to, $subject, $body);
+                            if (!mail($to, $subject, $body)){
+                                throw new Exception("Message not sent!!!");
+                            };
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
                         $msg = "Регистрация прошла успешно! Пройдите активацию через email.";
                     } else {
                         $msg = 'Данный email уже занят.';
@@ -62,7 +68,7 @@ class reg_class
                 } else {
                     $msg = 'Не валидный email.';
                 }
-                echo "<div class='alert alert-info' role='alert'>" . $msg . "</div>";
+                echo "<div class='alert alert-info' role='alert'> <br/><br/>" . $msg . "</div>";
 
             }
         }
@@ -113,13 +119,11 @@ class enter
             $status = $row['status'];
             $role = $row['role'];
             if ($strLogin == $_POST['Login'] && $strPassword == md5($_POST['Password']) && !empty($_POST['Login']) && !empty($_POST['Password']) && $status == 1) {
-
-                echo '<p class="alert alert-info" role="alert">' . $strLogin . " Добро пожаловать!" . '</p>' . '<br />';
                 $_SESSION['login'] = $strLogin;
                 $_SESSION['role'] = $role;
-
+                header('Location: /app/edit.php');
                 ?>
-                <meta http-equiv="refresh" content="0; url=../app/edit.php"><?php
+                <?php
 
             } else {
 

@@ -1,12 +1,14 @@
 <?php
-session_start();
-require_once 'header.php';
-require_once 'footer.php';
 require_once 'reg_class.php';
-?>
-<?php
+session_start();
 app\linkSql::link();
 app\enter::enter();
+require_once 'header.php';
+require_once 'footer.php';
+
+?>
+<?php
+
 ?>
 
 <div class="container container-top">
