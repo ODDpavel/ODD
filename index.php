@@ -160,8 +160,9 @@ if($_SESSION['login'] == 'Guest'){
 </div>
 </div>
 <?php
+\app\linkSql::link();
+\app\changePassword::changePassword();
 
-var_dump($_SESSION);
 
 
 

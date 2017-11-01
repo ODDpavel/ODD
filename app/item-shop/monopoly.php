@@ -3,6 +3,7 @@ session_start();
 require_once 'header.php';
 require_once 'footer.php';
 require_once '../reg_class.php';
+require_once '../administration.php';
 
 app\linkSql::link();
 
@@ -66,6 +67,12 @@ app\linkSql::link();
                                 </div>
                                 <div class="user-detail">
                                     <h5 class="handle"><?php print $row['name']; ?></h5>
+                                    <?php if(\app\administration::adminCheck()) { ?>
+                                    <form action="delete_comment.php" method="POST">
+                                        <input type="text" hidden value="<?php echo $row['id']?>" name="id"/>
+                                        <input type="submit"  name="delete" value="delete"/>
+                                    </form> <?php }
+                                    ?>
                                     <div class="post-meta">
                                         <div class="asker-meta">
                                             <span class="qa-message-what"></span>

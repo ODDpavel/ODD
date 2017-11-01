@@ -5,7 +5,7 @@ require_once "reg_class.php";
 
 class administration
 {
-    public static function admin()
+    public static function adminButton()
     {
         $link = linkSql::link();
         $strSQL = "SELECT * FROM users where login = '" . $_SESSION['login'] . "' ";
@@ -20,6 +20,18 @@ class administration
             </div>
         <?php }
     }
+
+    public static function adminCheck()
+    {
+        $link = linkSql::link();
+        $strSQL = "SELECT * FROM users where login = '" . $_SESSION['login'] . "' ";
+        $rs = mysqli_query($link, $strSQL);
+        $role = $rs->fetch_assoc();
+        if ($role['role'] == 'admin' && $_SESSION['role'] == 'admin') {
+            return $role;
+        }
+    }
+
 }
 
 ?>

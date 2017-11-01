@@ -11,7 +11,7 @@ class reg_class
         $username = trim($_POST['username']);// trim убирает пробелы
 
         $email = trim($_POST['email']);
-
+        $regTime = date('Y-m-d H:i:s');
         $password = trim($_POST['password']);
 
         $password = md5($password);
@@ -46,7 +46,7 @@ class reg_class
                     $count = mysqli_query($link, "SELECT id_user FROM users WHERE email='$email'");
 // проверка email-а
                     if (mysqli_num_rows($count) < 1) {
-                        mysqli_query($link, "INSERT INTO users(login,password,email, activation) VALUES('$username','$password','$email','$activation')");
+                        mysqli_query($link, "INSERT INTO users(login,password,email, activation, regTime) VALUES('$username','$password','$email','$activation', '$regTime')");
 // отправка письма
 
                         $to = "Romanoff78@yandex.ru";
@@ -174,6 +174,7 @@ class changePassword
             $row = mysqli_fetch_array($rs, MYSQLI_ASSOC);
             $strLogin = $row['login'];
             $strPassword = $row['password']; // сравниваем md5 результаты $postPass и $strPassword
+
             if ($_POST['Password'] == $_POST['Confirm'] && $strLogin == $_POST['Login'] && $strPassword == md5($_POST['Password']) && !empty($_POST['Login']) && !empty($_POST['Password']) && $postPass == $strPassword) {
                 echo '<p class="alert alert-info" role="alert">' . "Password successfully changed!" . '</p>' . '<br />';
                 $updatePass = "UPDATE users SET password = '" . "$newPass" . "' WHERE login = '" . "$postLog" . "'";
