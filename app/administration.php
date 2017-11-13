@@ -2,8 +2,20 @@
 
 namespace app;
 require_once "reg_class.php";
+class moder{
+    public static function moderCheck()
+    {
+        $link = linkSql::link();
+        $strSQL = "SELECT * FROM users where login = '" . $_SESSION['login'] . "' ";
+        $rs = mysqli_query($link, $strSQL);
+        $role = $rs->fetch_assoc();
+        if ($role['role'] == 'moder' && $_SESSION['role'] == 'moder') {
+            return $role;
+        }
+    }
+}
 
-class administration
+class admin extends moder
 {
     public static function adminButton()
     {
@@ -11,7 +23,7 @@ class administration
         $strSQL = "SELECT * FROM users where login = '" . $_SESSION['login'] . "' ";
         $rs = mysqli_query($link, $strSQL);
         $role = $rs->fetch_assoc();
-        if ($role['role'] == 'admin' && $_SESSION['role'] == 'admin') { ?>
+        if (($role['role'] == 'admin' && $_SESSION['role'] == 'admin')||($role['role'] == 'moder' && $_SESSION['role'] == 'moder')) { ?>
             <div class="container">
                 <br>
                 <form action="admin_page.php">
@@ -32,6 +44,12 @@ class administration
         }
     }
 
+    public static function changeToModer()
+    {
+        $link = linkSql::link();
+        $strSQL = "UPDATE users SET role = 'moder' WHERE login = '" . $_POST['moder'] . "' ";
+        mysqli_query($link, $strSQL);
+    }
 }
 
 ?>

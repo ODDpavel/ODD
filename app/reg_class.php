@@ -121,6 +121,8 @@ class enter
             if ($strLogin == $_POST['Login'] && $strPassword == md5($_POST['Password']) && !empty($_POST['Login']) && !empty($_POST['Password']) && $status == 1) {
                 $_SESSION['login'] = $strLogin;
                 $_SESSION['role'] = $role;
+                $login = $_SESSION['login'];
+                setcookie("name", $login, time() + 3600);
                 header('Location: /app/edit.php');
                 ?>
                 <?php
@@ -130,6 +132,7 @@ class enter
                 echo '<p class="alert alert-danger" role="alert">' . "Неверный логин или пароль!" . '</p>' . '<br />';
 
             }
+
 
         }
     }

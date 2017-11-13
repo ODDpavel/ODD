@@ -17,6 +17,7 @@ require_once '../app/administration.php';
     </form>
 </div>
 <br>
+<?php if ((\app\admin::adminCheck())||(\app\moder::moderCheck())) { ?>
 <div class="container">
     <div class="row">
         <table cellspacing="2" border="1" cellpadding="5" width="200">
@@ -34,7 +35,7 @@ require_once '../app/administration.php';
             ?>
         </table>
         <br/>
-        <?php if (\app\administration::adminCheck()) { ?>
+        <?php if (\app\admin::adminCheck()) { ?>
             <form class="form-inline" action="delete_user.php" method="post">
                 <div class="form-group">
                     <label for="exampleInputName2">Delete user</label>
@@ -45,6 +46,40 @@ require_once '../app/administration.php';
             <?php
         }
         ?>
+        <br/>
+        <?php if (\app\admin::adminCheck()) { ?>
+            <form class="form-inline" action="change_to_moder.php" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName2">Change to moder</label>
+                    <input type="text" class="form-control"  placeholder="User login" name="moder">
+                </div>
+                <button type="submit" class="btn btn-info">Change</button>
+            </form>
+            <?php
+        }
+        ?>
+        <table cellspacing="2" border="1" cellpadding="5" width="200">
+            <?php
 
+            $strSQL = "SELECT functions.description FROM functions 
+                  JOIN functions_roles 
+                  ON functions.function_id = functions_roles.function_id 
+                  JOIN role
+                  ON functions_roles.roles_id = role.roles_id
+                  JOIN users
+                  ON users.role_id = role.roles_id
+                  WHERE users.login = '" . $_SESSION['login'] . "' ";
+            $rs = mysqli_query($link, $strSQL);
+            echo "<th > Description </th> ";
+
+            while ($row = mysqli_fetch_array($rs)) {
+                echo "<tr> <td bgcolor='aqua'>" . $row[0] . "</td> ";
+                echo "<br>";
+            }
+            ?>
+        </table>
     </div>
 </div>
+<?php } else {
+    print_r("<h1>"."Leave page"."</h1>") ;
+} ?>

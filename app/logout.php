@@ -1,5 +1,7 @@
 <?php
 session_start();
+$login = $_SESSION['login'];
+setcookie("name", $login, time() + 1);
 require_once 'header.php';
 require_once 'footer.php';
 session_destroy();

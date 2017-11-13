@@ -4,7 +4,7 @@ require_once 'reg_class.php';
 require_once 'administration.php';
 $link = app\linkSql::link();
 $login = $_POST["login"];
-if (\app\administration::adminCheck()) {
+if (\app\admin::adminCheck()) {
     mysqli_query($link, "DELETE FROM `users`  WHERE `login` = '$login'");
     // Делаем редирект обратно
 }

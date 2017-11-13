@@ -67,7 +67,7 @@ app\linkSql::link();
                                 </div>
                                 <div class="user-detail">
                                     <h5 class="handle"><?php print $row['name']; ?></h5>
-                                    <?php if(\app\administration::adminCheck()) { ?>
+                                    <?php if(\app\moder::moderCheck()) { ?>
                                     <form action="delete_comment.php" method="POST">
                                         <input type="text" hidden value="<?php echo $row['id']?>" name="id"/>
                                         <input type="submit"  name="delete" value="delete"/>
