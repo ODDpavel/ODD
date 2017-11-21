@@ -1,5 +1,5 @@
 <?php
-require_once 'controller/error_handler.php';
+require_once '../app/controller/error_handler.php';
 
 class A {
     function foo(){

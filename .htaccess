@@ -1,0 +1,22 @@
+# настройка кодировки сервера
+AddDefaultCharset utf-8
+
+#запрет листинга каталогов (-запрет ошибка 403, +разрешён листинг)
+Options -Indexes
+
+#включает или отключает расширения страниц в строке запроса
+Options +MultiViews
+
+#назначение индексным файлом
+DirectoryIndex index.php
+
+#стилизация
+#IndexOptions FancyIndexing
+
+#скрытие в листинге файлов
+IndexIgnore *.rar *.txt 403.html
+
+#редирект со страницы
+#Redirect /app/logout.php /index.php
+
+ErrorDocument 404 /errors/404error.php

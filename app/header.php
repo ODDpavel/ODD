@@ -26,6 +26,20 @@ require_once "reg_class.php";
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../public/js/bootstrap.js"></script>
+<script type="text/javascript">
+    function show() {
+
+
+        $.ajax({
+            url: "../app/time.php",
+            cache: false,
+            success: function (html) {
+                $('#content_p').html(html);
+            }
+        })
+    }
+    setInterval('show()', 1000);
+</script>
 
         <div class="navbar navbar-inverse navbar-static-top-top navbar-fixed-top">
             <div class="container">
@@ -37,6 +51,7 @@ require_once "reg_class.php";
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/index.php"> ODD & Co </a>
+
                 </div>
                 <div class="collapse navbar-collapse" id="responsive-menu">
                     <ul class="nav navbar-nav">
@@ -49,6 +64,7 @@ require_once "reg_class.php";
                         <?php echo 'Welcome ' . app\enter::session()  ?> </a>
                     <?php if ($_SESSION["login"] == "Guest"){ ?><a class="navbar-brand" href='../app/enter.php'>Click here to login</a><?php }?>
                     <?php if ( $_SESSION["login"] !== "Guest"){ ?><a class="navbar-brand" href='../app/logout.php'>Click here to log out</a><?php }?>
+                    <p id="content_p" class="navbar-brand"></p>
                 </div>
 
 

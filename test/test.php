@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "reg_class.php";
+require_once "../app/reg_class.php";
 $link = app\linkSql::link();
 //header("Refresh: 1");
 echo "Тестовая страница <br>";
@@ -64,17 +64,4 @@ print_r(getdate(1935521234));
 $userName = 'odd';
 $_COOKIE['name'];
 
-$strSQL = "SELECT functions.description FROM functions 
-                  JOIN functions_roles 
-                  ON functions.function_id = functions_roles.function_id 
-                  JOIN role
-                  ON functions_roles.roles_id = role.roles_id
-                  JOIN users
-                  ON users.role_id = role.roles_id
-                  WHERE users.login = '" . $userName . "' ";
-$rs = mysqli_query($link, $strSQL); // производим запрос в бд
-
- // результат записываем в массив
-while ($row = mysqli_fetch_array($rs)) {
-    echo $row[0]."\n";
-}
+?>
